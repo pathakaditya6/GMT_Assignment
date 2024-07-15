@@ -1,0 +1,133 @@
+/* body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  } */
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .login-box {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+  }
+  
+  h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .login-box p {
+    margin-bottom: 20px;
+    color: #777;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .visibility-button {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+  }
+  
+  .forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  
+  .forgot-password a {
+    color: orange;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  
+  .sign-in-button {
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .sign-in-button:hover {
+    background-color: darkorange;
+  }
+  
+  .divider {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .google-button {
+    background-color: white;
+    /* color: #ffbf00d5; */
+    /* border: 1px solid #ddd; */
+    /* border-radius: 5px; */
+    /* padding: 10px; */
+    /* width: 100%; */
+    font-size: 22px;
+    cursor: pointer;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .register a {
+    color: orange;
+    text-decoration: none;
+  }
+  
+  .register a:hover {
+    text-decoration: underline;
+  }
+  img{
+    background-color: #ffffff;
+  }
