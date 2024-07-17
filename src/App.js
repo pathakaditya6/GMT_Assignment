@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import User from "./User";
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -53,10 +54,12 @@ function App() {
             </div>
           </div>
         </div>
+        <ToastContainer />
       </div>
     );
     
   } else if (currentPage === 1) {
+    
     return <User />;
   }
 }

@@ -2,14 +2,25 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import Register from "./Register";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from "./firebase";
+import { toast, ToastContainer } from "react-toastify";
 
 function Login() {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("Login Successful");
+      toast.success("user logged in Successfully");
+    } catch (error) {
+      console.log  (error.message);
+      toast.error("Invalid Credentials");
+    }
     console.log("Login submitted:", email, password);
   };
 
@@ -74,6 +85,7 @@ function Login() {
           </div>
         </form>
       </div>
+      <ToastContainer/>
     </div>
   );
 

@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, db } from './firebase';
+import {setDoc, doc } from 'firebase/firestore';
+import { toast, ToastContainer } from 'react-toastify';
+
 
 function Register() {
   const [email, setEmail] = useState('');
@@ -23,14 +28,41 @@ function Register() {
     setIsAgreed(event.target.checked);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    try{
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      console.log(user);
+      if(user){
+        await setDoc(doc(db, 'users', user.uid),{
+          userName: userName,
+          email: email,
+
+        });
+        }
+      console.log("User Register Successfuly!!");
+      toast.success("User Register Successfully!!",{
+      
+       
+ 
+      });
+
+    } catch (error) {
+      console.log(error.message);
+      toast.error(error.message,{
+        
+ 
+        
+        });
+    }
 
 
     console.log('Form submitted with data:', { email, userName, password });
   };
 
   return (
+
     <div className="container">
         <div className="login-box">
       <h1>Create your new account</h1>
@@ -77,7 +109,7 @@ function Register() {
             I Agree with Terms of Service and Privacy Policy
           </label>
         </div>
-        <button type="submit" disabled={!isAgreed}>
+         <button type="submit" disabled={!isAgreed}>
           Register
         </button>
       </form>
@@ -87,7 +119,9 @@ function Register() {
       </button>
       <p>Have an account? <a href="/">Sign In</a></p>
     </div>
+    <ToastContainer />
     </div>
+  
   );
 }
 
